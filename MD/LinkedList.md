@@ -3,6 +3,20 @@
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1fqzb66c00gj30p7056q38.jpg)
 
 如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点(JDK1.7/8 之后取消了循环，修改为双向链表)。
+## 数据结构
+```java
+private static class Node<E> {
+    E item;
+    Node<E> next;
+    Node<E> prev;
+
+    Node(Node<E> prev, E element, Node<E> next) {
+        this.item = element;
+        this.next = next;
+        this.prev = prev;
+    }
+}
+```
 
 ## 新增方法
 
@@ -65,3 +79,9 @@
 
 - LinkedList 插入，删除都是移动指针效率很高。
 - 查找需要进行遍历查询，效率较低。
+
+### 时间复杂度
+* 访问get：O(n/2)
+* 搜索indexOf：O(n)
+* 插入add：O(1)
+* 删除remove：O(1)

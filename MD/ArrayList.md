@@ -147,5 +147,11 @@ transient Object[] elementData;
     }
 ```
 
+### 时间复杂度
+* 访问get：O(1)
+* 搜索indexOf：O(n)
+* 插入add：O(n)
+* 删除remove：O(n)
+
 
 

@@ -13,6 +13,22 @@
 
 容量的默认大小是 16，负载因子是 0.75，当 `HashMap` 的 `size > 16*0.75` 时就会发生扩容(容量和负载因子都可以自由调整)。
 
+## 数据结构
+```java
+/**
+* The table, resized as necessary. Length MUST Always be a power of two.
+ */
+transient Entry[] table;
+ 
+static class Entry<K,V> implements Map.Entry<K,V> {
+    final K key;
+    V value;
+    Entry<K,V> next;
+    final int hash;
+    ……
+}
+```
+
 ## put 方法
 首先会将传入的 Key 做 `hash` 运算计算出 hashcode,然后根据数组长度取模计算出在数组中的 index 下标。
 
@@ -75,3 +91,9 @@ map.forEach((key,value)->{
 大大提高了查询效率。
 
 多线程场景下推荐使用 [ConcurrentHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)。
+
+### 时间复杂度
+* 访问get：
+* 搜索get：
+* 插入put：
+* 删除remove：
